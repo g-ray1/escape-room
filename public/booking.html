@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-  <title>Escape Room</title>
+  <title>Бронирование квеста - Escape Room</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -232,15 +232,15 @@
   <div class="wrapper">
     <header class="header">
       <div class="container container--size-l">
-        <span class="logo header__logo">
+        <a class="logo header__logo" href="index.html" aria-label="Перейти на Главную">
           <svg width="134" height="52" aria-hidden="true">
             <use xlink:href="#logo"></use>
           </svg>
-        </span>
+        </a>
         <nav class="main-nav header__main-nav">
           <ul class="main-nav__list">
             <li class="main-nav__item">
-              <a class="link active" href="index.html">Квесты</a>
+              <a class="link not-disabled active" href="index.html">Квесты</a>
             </li>
             <li class="main-nav__item">
               <a class="link" href="contacts.html">Контакты</a>
@@ -256,388 +256,116 @@
         </div>
       </div>
     </header>
-    <main class="page-content">
-      <div class="container">
+    <main class="page-content decorated-page">
+      <div class="decorated-page__decor" aria-hidden="true">
+        <picture>
+          <source type="image/webp"
+            srcset="img/content/maniac/maniac-bg-size-m.webp, img/content/maniac/maniac-bg-size-m@2x.webp 2x"><img
+            src="img/content/maniac/maniac-bg-size-m.jpg" srcset="img/content/maniac/maniac-bg-size-m@2x.jpg 2x"
+            width="1366" height="1959" alt="">
+        </picture>
+      </div>
+      <div class="container container--size-s">
         <div class="page-content__title-wrapper">
-          <h1 class="subtitle page-content__subtitle">квесты в Санкт-Петербурге
+          <h1 class="subtitle subtitle--size-l page-content__subtitle">Бронирование квеста
           </h1>
-          <h2 class="title title--size-m page-content__title">Выберите тематику</h2>
+          <p class="title title--size-m title--uppercase page-content__title">Маньяк</p>
         </div>
         <div class="page-content__item">
-          <form class="filter" action="#" method="get">
-            <fieldset class="filter__section">
-              <legend class="visually-hidden">Тематика</legend>
-              <ul class="filter__list">
-                <li class="filter__item">
-                  <input type="radio" name="type" id="all" checked>
-                  <label class="filter__label" for="all">
-                    <svg class="filter__icon" width="26" height="30" aria-hidden="true">
-                      <use xlink:href="#icon-all-quests"></use>
-                    </svg><span class="filter__label-text">Все квесты</span>
-                  </label>
-                </li>
-                <li class="filter__item">
-                  <input type="radio" name="type" id="adventure">
-                  <label class="filter__label" for="adventure">
-                    <svg class="filter__icon" width="36" height="30" aria-hidden="true">
-                      <use xlink:href="#icon-adventure"></use>
-                    </svg><span class="filter__label-text">Приключения</span>
-                  </label>
-                </li>
-                <li class="filter__item">
-                  <input type="radio" name="type" id="horror">
-                  <label class="filter__label" for="horror">
-                    <svg class="filter__icon" width="30" height="30" aria-hidden="true">
-                      <use xlink:href="#icon-horror"></use>
-                    </svg><span class="filter__label-text">Ужасы</span>
-                  </label>
-                </li>
-                <li class="filter__item">
-                  <input type="radio" name="type" id="mystic">
-                  <label class="filter__label" for="mystic">
-                    <svg class="filter__icon" width="30" height="30" aria-hidden="true">
-                      <use xlink:href="#icon-mystic"></use>
-                    </svg><span class="filter__label-text">Мистика</span>
-                  </label>
-                </li>
-                <li class="filter__item">
-                  <input type="radio" name="type" id="detective">
-                  <label class="filter__label" for="detective">
-                    <svg class="filter__icon" width="40" height="30" aria-hidden="true">
-                      <use xlink:href="#icon-detective"></use>
-                    </svg><span class="filter__label-text">Детектив</span>
-                  </label>
-                </li>
-                <li class="filter__item">
-                  <input type="radio" name="type" id="sciFi">
-                  <label class="filter__label" for="sciFi">
-                    <svg class="filter__icon" width="28" height="30" aria-hidden="true">
-                      <use xlink:href="#icon-sci-fi"></use>
-                    </svg><span class="filter__label-text">Sci-fi</span>
-                  </label>
-                </li>
-              </ul>
-            </fieldset>
-            <fieldset class="filter__section">
-              <legend class="visually-hidden">Сложность</legend>
-              <ul class="filter__list">
-                <li class="filter__item">
-                  <input type="radio" name="level" id="any" checked>
-                  <label class="filter__label" for="any"><span class="filter__label-text">Любой</span>
-                  </label>
-                </li>
-                <li class="filter__item">
-                  <input type="radio" name="level" id="easy">
-                  <label class="filter__label" for="easy"><span class="filter__label-text">Лёгкий</span>
-                  </label>
-                </li>
-                <li class="filter__item">
-                  <input type="radio" name="level" id="middle">
-                  <label class="filter__label" for="middle"><span class="filter__label-text">Средний</span>
-                  </label>
-                </li>
-                <li class="filter__item">
-                  <input type="radio" name="level" id="hard">
-                  <label class="filter__label" for="hard"><span class="filter__label-text">Сложный</span>
-                  </label>
-                </li>
-              </ul>
-            </fieldset>
-          </form>
-        </div>
-        <h2 class="title visually-hidden">Выберите квест</h2>
-        <div class="cards-grid">
-          <div class="quest-card">
-            <div class="quest-card__img">
-              <picture>
-                <source type="image/webp"
-                  srcset="img/content/crypt/crypt-size-s.webp, img/content/crypt/crypt-size-s@2x.webp 2x"><img
-                  src="img/content/crypt/crypt-size-s.jpg" srcset="img/content/crypt/crypt-size-s@2x.jpg 2x" width="344"
-                  height="232" alt="Мужчина в клетке в подземелье.">
-              </picture>
+          <div class="booking-map">
+            <div class="map">
+              <div class="map__container"></div>
             </div>
-            <div class="quest-card__content">
-              <div class="quest-card__info-wrapper"><a class="quest-card__link" href="quest.html">Склеп</a>
-              </div>
-              <ul class="tags quest-card__tags">
-                <li class="tags__item">
-                  <svg width="11" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-person"></use>
-                  </svg>2&ndash;5&nbsp;чел
-                </li>
-                <li class="tags__item">
-                  <svg width="14" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-level"></use>
-                  </svg>Сложный
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="quest-card">
-            <div class="quest-card__img">
-              <picture>
-                <source type="image/webp"
-                  srcset="img/content/maniac/maniac-size-s.webp, img/content/maniac/maniac-size-s@2x.webp 2x"><img
-                  src="img/content/maniac/maniac-size-s.jpg" srcset="img/content/maniac/maniac-size-s@2x.jpg 2x"
-                  width="344" height="232" alt="Мужчина в маске в тёмном переходе.">
-              </picture>
-            </div>
-            <div class="quest-card__content">
-              <div class="quest-card__info-wrapper"><a class="quest-card__link" href="quest.html">Маньяк</a>
-              </div>
-              <ul class="tags quest-card__tags">
-                <li class="tags__item">
-                  <svg width="11" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-person"></use>
-                  </svg>3&ndash;6&nbsp;чел
-                </li>
-                <li class="tags__item">
-                  <svg width="14" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-level"></use>
-                  </svg>Средний
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="quest-card">
-            <div class="quest-card__img">
-              <picture>
-                <source type="image/webp"
-                  srcset="img/content/ritual/ritual-size-s.webp, img/content/ritual/ritual-size-s@2x.webp 2x"><img
-                  src="img/content/ritual/ritual-size-s.jpg" srcset="img/content/ritual/ritual-size-s@2x.jpg 2x"
-                  width="344" height="232" alt="Череп и горящая свеча в тёмном помещении.">
-              </picture>
-            </div>
-            <div class="quest-card__content">
-              <div class="quest-card__info-wrapper"><a class="quest-card__link" href="quest.html">Ритуал</a>
-              </div>
-              <ul class="tags quest-card__tags">
-                <li class="tags__item">
-                  <svg width="11" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-person"></use>
-                  </svg>3&ndash;5&nbsp;чел
-                </li>
-                <li class="tags__item">
-                  <svg width="14" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-level"></use>
-                  </svg>Лёгкий
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="quest-card">
-            <div class="quest-card__img">
-              <picture>
-                <source type="image/webp"
-                  srcset="img/content/ghosts/ghosts-size-s.webp, img/content/ghosts/ghosts-size-s@2x.webp 2x"><img
-                  src="img/content/ghosts/ghosts-size-s.jpg" srcset="img/content/ghosts/ghosts-size-s@2x.jpg 2x"
-                  width="344" height="232" alt="Силует девушки за стеклом.">
-              </picture>
-            </div>
-            <div class="quest-card__content">
-              <div class="quest-card__info-wrapper"><a class="quest-card__link" href="quest.html">История призраков</a>
-              </div>
-              <ul class="tags quest-card__tags">
-                <li class="tags__item">
-                  <svg width="11" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-person"></use>
-                  </svg>5&ndash;6&nbsp;чел
-                </li>
-                <li class="tags__item">
-                  <svg width="14" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-level"></use>
-                  </svg>Лёгкий
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="quest-card">
-            <div class="quest-card__img">
-              <picture>
-                <source type="image/webp"
-                  srcset="img/content/palace/palace-size-s.webp, img/content/palace/palace-size-s@2x.webp 2x"><img
-                  src="img/content/palace/palace-size-s.jpg" srcset="img/content/palace/palace-size-s@2x.jpg 2x"
-                  width="344" height="232" alt="Замок на возвышенности.">
-              </picture>
-            </div>
-            <div class="quest-card__content">
-              <div class="quest-card__info-wrapper"><a class="quest-card__link" href="quest.html">Тайны старого
-                  особняка</a>
-              </div>
-              <ul class="tags quest-card__tags">
-                <li class="tags__item">
-                  <svg width="11" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-person"></use>
-                  </svg>2&ndash;3&nbsp;чел
-                </li>
-                <li class="tags__item">
-                  <svg width="14" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-level"></use>
-                  </svg>Лёгкий
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="quest-card">
-            <div class="quest-card__img">
-              <picture>
-                <source type="image/webp"
-                  srcset="img/content/hut/hut-size-s.webp, img/content/hut/hut-size-s@2x.webp 2x"><img
-                  src="img/content/hut/hut-size-s.jpg" srcset="img/content/hut/hut-size-s@2x.jpg 2x" width="344"
-                  height="232" alt="Череп животного в руках девушки.">
-              </picture>
-            </div>
-            <div class="quest-card__content">
-              <div class="quest-card__info-wrapper"><a class="quest-card__link" href="quest.html">Хижина в&nbsp;лесу</a>
-              </div>
-              <ul class="tags quest-card__tags">
-                <li class="tags__item">
-                  <svg width="11" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-person"></use>
-                  </svg>4&ndash;7&nbsp;чел
-                </li>
-                <li class="tags__item">
-                  <svg width="14" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-level"></use>
-                  </svg>Средний
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="quest-card">
-            <div class="quest-card__img">
-              <picture>
-                <source type="image/webp"
-                  srcset="img/content/experiment/experiment-size-s.webp, img/content/experiment/experiment-size-s@2x.webp 2x">
-                <img src="img/content/experiment/experiment-size-s.jpg"
-                  srcset="img/content/experiment/experiment-size-s@2x.jpg 2x" width="344" height="232"
-                  alt="Производственный цех.">
-              </picture>
-            </div>
-            <div class="quest-card__content">
-              <div class="quest-card__info-wrapper"><a class="quest-card__link" href="quest.html">Фатальный
-                  эксперимент</a>
-              </div>
-              <ul class="tags quest-card__tags">
-                <li class="tags__item">
-                  <svg width="11" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-person"></use>
-                  </svg>4&ndash;7&nbsp;чел
-                </li>
-                <li class="tags__item">
-                  <svg width="14" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-level"></use>
-                  </svg>Сложный
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="quest-card">
-            <div class="quest-card__img">
-              <picture>
-                <source type="image/webp"
-                  srcset="img/content/metro/metro-size-s.webp, img/content/metro/metro-size-s@2x.webp 2x"><img
-                  src="img/content/metro/metro-size-s.jpg" srcset="img/content/metro/metro-size-s@2x.jpg 2x" width="344"
-                  height="232" alt="Мужчина на фоне кирпичной стены.">
-              </picture>
-            </div>
-            <div class="quest-card__content">
-              <div class="quest-card__info-wrapper"><a class="quest-card__link" href="quest.html">Метро 2033</a>
-              </div>
-              <ul class="tags quest-card__tags">
-                <li class="tags__item">
-                  <svg width="11" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-person"></use>
-                  </svg>6&ndash;8&nbsp;чел
-                </li>
-                <li class="tags__item">
-                  <svg width="14" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-level"></use>
-                  </svg>Средний
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="quest-card">
-            <div class="quest-card__img">
-              <picture>
-                <source type="image/webp"
-                  srcset="img/content/loft/loft-size-s.webp, img/content/loft/loft-size-s@2x.webp 2x"><img
-                  src="img/content/loft/loft-size-s.jpg" srcset="img/content/loft/loft-size-s@2x.jpg 2x" width="344"
-                  height="232" alt="Фотоапарат, очки и канцелярские предметы на фоне карты.">
-              </picture>
-            </div>
-            <div class="quest-card__content">
-              <div class="quest-card__info-wrapper"><a class="quest-card__link" href="quest.html">Старый чердак</a>
-              </div>
-              <ul class="tags quest-card__tags">
-                <li class="tags__item">
-                  <svg width="11" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-person"></use>
-                  </svg>2&ndash;3&nbsp;чел
-                </li>
-                <li class="tags__item">
-                  <svg width="14" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-level"></use>
-                  </svg>Лёгкий
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="quest-card">
-            <div class="quest-card__img">
-              <picture>
-                <source type="image/webp"
-                  srcset="img/content/frontier/frontier-size-s.webp, img/content/frontier/frontier-size-s@2x.webp 2x">
-                <img src="img/content/frontier/frontier-size-s.jpg"
-                  srcset="img/content/frontier/frontier-size-s@2x.jpg 2x" width="344" height="232"
-                  alt="Застрявшая машина с надписью Help на боку.">
-              </picture>
-            </div>
-            <div class="quest-card__content">
-              <div class="quest-card__info-wrapper"><a class="quest-card__link" href="quest.html">Последний рубеж</a>
-              </div>
-              <ul class="tags quest-card__tags">
-                <li class="tags__item">
-                  <svg width="11" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-person"></use>
-                  </svg>4&ndash;7&nbsp;чел
-                </li>
-                <li class="tags__item">
-                  <svg width="14" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-level"></use>
-                  </svg>Средний
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="quest-card">
-            <div class="quest-card__img">
-              <picture>
-                <source type="image/webp"
-                  srcset="img/content/mars/mars-size-s.webp, img/content/mars/mars-size-s@2x.webp 2x"><img
-                  src="img/content/mars/mars-size-s.jpg" srcset="img/content/mars/mars-size-s@2x.jpg 2x" width="344"
-                  height="232" alt="Сюрреалистичное изображение человека.">
-              </picture>
-            </div>
-            <div class="quest-card__content">
-              <div class="quest-card__info-wrapper"><a class="quest-card__link" href="quest.html">Марс-2056</a>
-              </div>
-              <ul class="tags quest-card__tags">
-                <li class="tags__item">
-                  <svg width="11" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-person"></use>
-                  </svg>2&ndash;4&nbsp;чел
-                </li>
-                <li class="tags__item">
-                  <svg width="14" height="14" aria-hidden="true">
-                    <use xlink:href="#icon-level"></use>
-                  </svg>Лёгкий
-                </li>
-              </ul>
-            </div>
+            <p class="booking-map__address">Вы&nbsp;выбрали: наб. реки Карповки&nbsp;5, лит&nbsp;П, м. Петроградская</p>
           </div>
         </div>
+        <form class="booking-form" action="https://echo.htmlacademy.ru/" method="post">
+          <fieldset class="booking-form__section">
+            <legend class="visually-hidden">Выбор даты и времени</legend>
+            <fieldset class="booking-form__date-section">
+              <legend class="booking-form__date-title">Сегодня</legend>
+              <div class="booking-form__date-inner-wrapper">
+                <label class="custom-radio booking-form__date">
+                  <input type="radio" id="today9h45m" name="date" required="required" value="today9h45m"><span
+                    class="custom-radio__label">9:45</span>
+                </label>
+                <label class="custom-radio booking-form__date">
+                  <input type="radio" id="today15h00m" name="date" checked required="required" value="today15h00m"><span
+                    class="custom-radio__label">15:00</span>
+                </label>
+                <label class="custom-radio booking-form__date">
+                  <input type="radio" id="today17h30m" name="date" required="required" value="today17h30m"><span
+                    class="custom-radio__label">17:30</span>
+                </label>
+                <label class="custom-radio booking-form__date">
+                  <input type="radio" id="today19h30m" name="date" required="required" value="today19h30m"
+                    disabled><span class="custom-radio__label">19:30</span>
+                </label>
+                <label class="custom-radio booking-form__date">
+                  <input type="radio" id="today21h30m" name="date" required="required" value="today21h30m"><span
+                    class="custom-radio__label">21:30</span>
+                </label>
+              </div>
+            </fieldset>
+            <fieldset class="booking-form__date-section">
+              <legend class="booking-form__date-title">Завтра</legend>
+              <div class="booking-form__date-inner-wrapper">
+                <label class="custom-radio booking-form__date">
+                  <input type="radio" id="tomorrow11h00m" name="date" required="required" value="tomorrow11h00m"><span
+                    class="custom-radio__label">11:00</span>
+                </label>
+                <label class="custom-radio booking-form__date">
+                  <input type="radio" id="tomorrow15h00m" name="date" required="required" value="tomorrow15h00m"
+                    disabled><span class="custom-radio__label">15:00</span>
+                </label>
+                <label class="custom-radio booking-form__date">
+                  <input type="radio" id="tomorrow17h30m" name="date" required="required" value="tomorrow17h30m"
+                    disabled><span class="custom-radio__label">17:30</span>
+                </label>
+                <label class="custom-radio booking-form__date">
+                  <input type="radio" id="tomorrow19h45m" name="date" required="required" value="tomorrow19h45m"><span
+                    class="custom-radio__label">19:45</span>
+                </label>
+                <label class="custom-radio booking-form__date">
+                  <input type="radio" id="tomorrow21h30m" name="date" required="required" value="tomorrow21h30m"><span
+                    class="custom-radio__label">21:30</span>
+                </label>
+              </div>
+            </fieldset>
+          </fieldset>
+          <fieldset class="booking-form__section">
+            <legend class="visually-hidden">Контактная информация</legend>
+            <div class="custom-input booking-form__input">
+              <label class="custom-input__label" for="name">Ваше имя</label>
+              <input type="text" id="name" name="name" placeholder="Имя" required="required"
+                pattern="[А-Яа-яЁёA-Za-z'- ]{1,}">
+            </div>
+            <div class="custom-input booking-form__input">
+              <label class="custom-input__label" for="tel">Контактный телефон</label>
+              <input type="tel" id="tel" name="tel" placeholder="Телефон" required="required" pattern="[0-9]{10,}">
+            </div>
+            <div class="custom-input booking-form__input">
+              <label class="custom-input__label" for="person">Количество участников</label>
+              <input type="number" id="person" name="person" placeholder="Количество участников" required="required">
+            </div>
+            <label class="custom-checkbox booking-form__checkbox booking-form__checkbox--children">
+              <input type="checkbox" id="children" name="children" checked><span class="custom-checkbox__icon">
+                <svg width="20" height="17" aria-hidden="true">
+                  <use xlink:href="#icon-tick"></use>
+                </svg></span><span class="custom-checkbox__label">Со&nbsp;мной будут дети</span>
+            </label>
+          </fieldset>
+          <button class="btn btn--accent btn--cta booking-form__submit" type="submit">Забронировать</button>
+          <label class="custom-checkbox booking-form__checkbox booking-form__checkbox--agreement">
+            <input type="checkbox" id="id-order-agreement" name="user-agreement" required><span
+              class="custom-checkbox__icon">
+              <svg width="20" height="17" aria-hidden="true">
+                <use xlink:href="#icon-tick"></use>
+              </svg></span><span class="custom-checkbox__label">Я&nbsp;согласен с
+              <a class="link link--active-silver link--underlined" href="#">правилами обработки персональных
+                данных</a>&nbsp;и пользовательским соглашением</span>
+          </label>
+        </form>
       </div>
     </main>
     <footer class="footer">
