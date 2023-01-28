@@ -6,3 +6,8 @@ export const APIRoutes = {
   BookingPage: 'booking',
   ReservationsPage: 'reservations',
 };
+
+export const NameSpaces = {
+  Data: 'DATA',
+  User: 'USER',
+};
