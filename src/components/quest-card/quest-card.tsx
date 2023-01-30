@@ -1,11 +1,13 @@
+import { Link } from 'react-router-dom';
+import { APPRoutes } from '../../const';
 import { Quest } from '../../types/types';
 
-type QuestPageProps = {
+type QuestCardProps = {
   quest: Quest;
 }
 
-function QuestCard(props: QuestPageProps): JSX.Element {
-  const { title, previewImg, previewImgWebp, level, peopleMinMax } = props.quest;
+function QuestCard(props: QuestCardProps): JSX.Element {
+  const { title, previewImg, previewImgWebp, level, peopleMinMax, id } = props.quest;
   const peoppleMin = peopleMinMax[0];
   const peopleMax = peopleMinMax[1];
 
@@ -23,7 +25,8 @@ function QuestCard(props: QuestPageProps): JSX.Element {
         </picture>
       </div>
       <div className="quest-card__content">
-        <div className="quest-card__info-wrapper"><a className="quest-card__link" href="quest.html">{title}</a>
+        <div className="quest-card__info-wrapper">
+          <Link className="quest-card__link" to={`${APPRoutes.QuestPage}/${id}`}>{title}</Link>
         </div>
         <ul className="tags quest-card__tags">
           <li className="tags__item">

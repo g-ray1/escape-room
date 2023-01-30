@@ -3,14 +3,13 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import App from './components/app/app';
 import { store } from './store';
-import { quests } from './mocks/quests';
-import { fetchQuestsListAction } from './store/data/data-slice';
+import { fetchQuestsListAction } from './store/api-actions';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
-store.dispatch(fetchQuestsListAction(quests));
+store.dispatch(fetchQuestsListAction());
 
 root.render(
   <React.StrictMode>

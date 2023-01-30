@@ -1,4 +1,8 @@
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import { DEFAULT_MAP_POSITION } from '../../const';
+
 function Contactspage(): JSX.Element {
+
   return (
     <main className="page-content decorated-page">
       <div className="decorated-page__decor" aria-hidden="true">
@@ -45,7 +49,21 @@ function Contactspage(): JSX.Element {
           </dl>
           <div className="contacts__map">
             <div className="map">
-              <div className="map__container"></div>
+              <div className="map__container">
+
+                <MapContainer style={{ height: 370, width: 617 }} center={DEFAULT_MAP_POSITION} zoom={17} scrollWheelZoom>
+                  <TileLayer
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  />
+                  <Marker position={DEFAULT_MAP_POSITION}>
+                    <Popup keepInView>
+                      Мы находимся здесь!
+                    </Popup>
+                  </Marker>
+                </MapContainer >
+
+              </div>
             </div>
           </div>
         </div>

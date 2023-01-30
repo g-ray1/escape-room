@@ -1,10 +1,7 @@
-import { useSelector } from 'react-redux';
 import QuestTypeSelector from '../../components/quest-type-selector/quest-type-selector';
 import QuestsListComponent from '../../components/quests-list/quests-list';
-import { getQuestsList } from '../../store/data/data-selectors';
 
 function MainPage(): JSX.Element {
-  const quests = useSelector(getQuestsList);
 
   return (
     <main className="page-content">
@@ -20,7 +17,7 @@ function MainPage(): JSX.Element {
         </div>
         <h2 className="title visually-hidden">Выберите квест</h2>
 
-        <QuestsListComponent questsList={quests}/>
+        <QuestsListComponent />
 
       </div>
     </main >
