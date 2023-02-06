@@ -11,6 +11,7 @@ import { APPRoutes } from '../../const';
 import PrivateRoute from '../private-route/private-route';
 import { useSelector } from 'react-redux';
 import { getAuthStatus } from '../../store/user/user-selectors';
+import Page404 from '../../pages/page-404/page-404';
 
 function App(): JSX.Element {
   const authStatus = useSelector(getAuthStatus);
@@ -29,13 +30,11 @@ function App(): JSX.Element {
           </Route>
           <Route path={APPRoutes.ContactsPage} element={<ContactsPage />} />
           <Route path={APPRoutes.LoginPage} element={<LoginPage />} />
-          <Route path={APPRoutes.ReservationsPage} element=
-            {
-              <PrivateRoute authorizationStatus={authStatus}>
-                <ReservationsPage />
-              </PrivateRoute>
-            }
+          <Route path={APPRoutes.ReservationsPage} element={
+            <PrivateRoute authorizationStatus={authStatus}><ReservationsPage /></PrivateRoute>
+          }
           />
+          <Route path='*' element={<Page404 />} />
         </Route>
       </Routes>
     </BrowserRouter>

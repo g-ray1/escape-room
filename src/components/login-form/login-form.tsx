@@ -1,72 +1,73 @@
-import { FormEvent, useEffect, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { APPRoutes, AuthStatus } from '../../const';
+import { APPRoutes, EMAIL_REGEXP, PASSWORD_REGEXP } from '../../const';
 import { store } from '../../store';
 import { loginAction } from '../../store/api-actions';
-import { getAuthStatus } from '../../store/user/user-selectors';
 import { AuthData } from '../../types/types';
 
 function LoginForm(): JSX.Element {
-  const loginRef = useRef<HTMLInputElement | null>(null);
-  const passwordRef = useRef<HTMLInputElement | null>(null);
+  const {
+    register,
+    formState: {
+      errors,
+    },
+    handleSubmit,
+  } = useForm<AuthData>();
   const navigate = useNavigate();
-  const authStatus = useSelector(getAuthStatus);
 
-  const onSubmit = (authData: AuthData) => {
-    store.dispatch(loginAction(authData));
+  const onSubmit = (data: AuthData) => {
+    store.dispatch(loginAction(data));
+    navigate(APPRoutes.MainPage);
   };
-
-  const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
-    evt.preventDefault();
-
-    if (loginRef.current !== null && passwordRef.current !== null && passwordRef.current.value !== '') {
-      onSubmit({
-        login: loginRef.current.value,
-        password: passwordRef.current.value,
-      });
-    }
-  };
-
-  useEffect(() => {
-    if (authStatus === AuthStatus.Auth) {
-      navigate(APPRoutes.MainPage);
-    }
-  }, [authStatus, navigate]);
 
   return (
     <form
-      action="#"
+      action="https://echo.htmlacademy.ru/"
       className="login-form"
-      onSubmit={handleSubmit}
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
+      onSubmit={handleSubmit(onSubmit)}
     >
       <div className="login-form__inner-wrapper">
         <h1 className="title title--size-s login-form__title">Вход</h1>
         <div className="login-form__inputs">
+
           <div className="custom-input login-form__input">
             <label className="custom-input__label" htmlFor="email">E&nbsp;&ndash;&nbsp;mail</label>
             <input
-              ref={loginRef}
-              name="email"
+              {...register('email', {
+                required: 'Поле обязательно к заполнению!', pattern: EMAIL_REGEXP,
+              })}
               type="email"
               id="email"
               placeholder="Адрес электронной почты"
-              required
             />
+            <div>
+              {errors?.email && <p>{errors?.email?.message || 'Пример корректного E-mail: example@mail.com'}</p>}
+            </div>
           </div>
+
           <div className="custom-input login-form__input">
             <label className="custom-input__label" htmlFor="password">Пароль</label>
             <input
-              ref={passwordRef}
-              name="password"
+              {...register('password', {
+                required: 'Поле обязательно к заполнению!',
+                pattern: PASSWORD_REGEXP })}
               type="password"
               id="password"
               placeholder="Пароль"
-              required
             />
+            <div>
+              {errors?.password && <p>{errors?.password?.message || 'Пароль должен состоять не менее чем из 3 символов, содержать минимум одну букву и одну цифру, и в нём не должно быть пробелов.'}</p>}
+            </div>
           </div>
+
         </div>
-        <button className="btn btn--accent btn--general login-form__submit" type="submit">Войти</button>
+        <button
+          className="btn btn--accent btn--general login-form__submit"
+          type="submit"
+        >
+          Войти
+        </button>
       </div>
       <label className="custom-checkbox login-form__checkbox">
         <input
@@ -82,10 +83,12 @@ function LoginForm(): JSX.Element {
             <use xlinkHref="#icon-tick"></use>
           </svg>
         </span>
-        <span className="custom-checkbox__label">Я&nbsp;согласен с&nbsp;
-          <a className="link link--active-silver link--underlined" href="#">правилами обработки персональных
-            данных
-          </a>&nbsp;и пользовательским соглашением
+        <span className="custom-checkbox__label">
+          Я&nbsp;согласен с&nbsp;
+          <a className="link link--active-silver link--underlined" href="#">
+            правилами обработки персональныхданных
+          </a>
+          &nbsp;и пользовательским соглашением
         </span>
       </label>
     </form>

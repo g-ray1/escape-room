@@ -1,10 +1,9 @@
 export type AuthData = {
-  login: string;
+  email: string;
   password: string;
 };
 
 export type UserData = {
-  id: number;
   email: string;
   token: string;
 };
@@ -50,7 +49,7 @@ export type MapCoordinates = [number, number];
 export type Coords = MapCoordinates[];
 
 export type BookingRequest = {
-  'date': string;
+  'date': 'today' | 'tomorrow';
   'time': string;
   'contactPerson': string;
   'phone': string;

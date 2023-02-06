@@ -7,7 +7,6 @@ export const getActiveQuestLevel = (state: State) => state[NameSpaces.Data].acti
 export const getQuestsList = (state: State) => state[NameSpaces.Data].questsList;
 export const getQuestData = (state: State) => state[NameSpaces.Data].quest;
 export const getBookingData = (state: State) => state[NameSpaces.Data].bookingData;
-export const getBookingDataLocations = (state: State) => state[NameSpaces.Data].bookingData.locations;
 
 export const getQuestsByType = createSelector(
   [getQuestsList, getActiveQuestType],
