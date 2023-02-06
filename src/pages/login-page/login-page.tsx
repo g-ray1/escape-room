@@ -1,12 +1,6 @@
-import { useLocation } from 'react-router-dom';
 import LoginForm from '../../components/login-form/login-form';
 
 function LoginPage(): JSX.Element {
-  const location = useLocation();
-  const fromPage = location.state as Location;
-
-  console.log(fromPage);
-
   return (
     <main className="decorated-page login">
       <div className="decorated-page__decor" aria-hidden="true">

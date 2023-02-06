@@ -9,7 +9,7 @@ type InitialState = {
   questsList: QuestsList;
   questsByType: QuestsList;
   questsByLevel: QuestsList;
-  quest?: Quest;
+  quest: Quest | null;
   bookingData: BookingData;
 }
 
@@ -19,7 +19,7 @@ const initialState: InitialState = {
   questsList: [] as QuestsList,
   questsByType: [] as QuestsList,
   questsByLevel: [] as QuestsList,
-  quest: {} as Quest,
+  quest: null,
   bookingData: {} as BookingData,
 };
 

@@ -11,7 +11,7 @@ function PrivateRoute({authorizationStatus, children}: PrivateRouteProps): JSX.E
 
   if (authorizationStatus !== AuthStatus.Auth) {
     return (
-      <Navigate to={APPRoutes.LoginPage} state={{from: location}}/>
+      <Navigate to={APPRoutes.LoginPage} state={{from: location}} replace={false}/>
     );
   }
 

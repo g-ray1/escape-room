@@ -45,3 +45,7 @@ export const enum QuestLevels {
 }
 
 export const DEFAULT_MAP_POSITION: MapCoordinates = [59.9683760758645, 30.317376713491434];
+
+export const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+
+export const PASSWORD_REGEXP = /(?=.*[a-zа-я])(?=.*[0-9])[0-9a-zа-я!@#$%^&*]{3,}/i;
